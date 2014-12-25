@@ -1,6 +1,7 @@
 #ifndef _DATA_H
 #define _DATA_H 1
 
+#include <stdbool.h>
 
 struct state_list {
   int state;
@@ -35,12 +36,13 @@ struct rule_list {
 };
 
 struct program_info {
-  unsigned int tape_length;
+  long long int tape_length;
   char *tape_data;
   int initial_state;
   struct state_list *final_states;
   struct rule_list *rules;
   unsigned int position;
+  bool single_step;
 };
 
 extern void add_state_to_list(struct state_list *list, int state);
